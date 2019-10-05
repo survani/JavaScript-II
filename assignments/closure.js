@@ -4,6 +4,21 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+const streamerAward = () => {
+  let whatYear = '2019';
+  const bestStreamer = 'DrDisrespect';
+  return function() {
+    let text = `In the year ${whatYear}, the best streamer was ${bestStreamer}`;
+    return text;
+  }
+};
+
+const newBestStreamer = streamerAward();
+console.log(newBestStreamer());
+console.log(newBestStreamer());
+console.log(newBestStreamer());
+console.log(newBestStreamer());
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 

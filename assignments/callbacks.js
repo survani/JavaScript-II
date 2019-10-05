@@ -1,6 +1,9 @@
 // Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array.  Study both the problem and the solution to figure out the rest of the problems.
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
+// items.push("Juice Box");
+// **For Fun**: I added Juice Box to be the last
+// item. Uncomment to see what happens in some challenges.
 
 /* 
 
@@ -40,30 +43,41 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 
 function getLength(arr, cb) {
-  // getLength passes the length of the array into the callback.
+  return cb(arr.length);
 }
 
+
+const seeLength = getLength(items, itemCount => `I have ${itemCount} items's!`);
+console.table(seeLength);
+
+//--------------------------------------------------------------------
+
 function last(arr, cb) {
+  return cb(arr[arr.length -1])
   // last passes the last item of the array into the callback.
 }
 
+const lastItem = last(items, showLastItem => `${showLastItem} will be the last item in the array!`);
+console.table(lastItem);
+
+//--------------------------------------------------------------------
+
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  cb(x + y)
 }
+sumNums(2773,495, add => {console.log(add);});
+
+
 
 function multiplyNums(x, y, cb) {
+  cb(x * y)
   // multiplyNums multiplies two numbers and passes the result to the callback.
 }
+multiplyNums(15,40, multi => {console.log(multi);});
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-}
-
-/* STRETCH PROBLEM */
-
-function removeDuplicates(array, cb) {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
-}
+  return cb(list.includes(item))}
+  console.log(contains("ball", items,))
